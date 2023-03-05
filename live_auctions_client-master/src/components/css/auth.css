@@ -55,3 +55,7 @@
   .app__icon {
     width: 200px;
   }
+
+  .skip {
+    display: none;
+  }

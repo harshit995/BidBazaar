@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Card from '@mui/material/Card';
+import './css/card.css';
+
 import { Link, useNavigate } from 'react-router-dom';
 // Actions
 import { loadAdDetails, loadAdImage, setImageLoadingStatus } from '../actions/ad';
@@ -40,7 +42,7 @@ function MediaCard(props) {
       }}
       style={{ textDecoration: 'none' }}
     >
-      <Card style={props.cardStyle}>
+      <Card style={props.cardStyle} className='card'>
         <CardActionArea>
           {!props.dashCard && (
             <CardMedia
@@ -55,7 +57,7 @@ function MediaCard(props) {
               {props.ad.productName}
             </Typography>
             <Typography variant='body2' color='text.secondary'>
-              Price: $ {props.ad.currentPrice.$numberDecimal}
+              Price: ₹ {props.ad.currentPrice.$numberDecimal}
             </Typography>
             <Typography variant='body2' color='text.secondary'>
               Remaining: {secondsToHmsShort(props.ad.timer)}
