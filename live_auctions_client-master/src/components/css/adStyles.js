@@ -1,10 +1,16 @@
+import { borderRadius } from "@mui/system";
+
 export const boxStyle = {
   display: 'flex',
   justifyContent: 'center',
-  marginTop: '1rem',
 };
 
-export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem' };
+export const paperStyle = { 
+  width: '80%', 
+  maxWidth: '950px', 
+  padding: '1.5rem',
+  borderRadius: '0px',
+  margin: '15px' };
 
 export const adArea = {
   display: 'flex',

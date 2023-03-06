@@ -229,7 +229,7 @@ const Ad = (props) => {
                       Seller: {props.adDetails.owner.username}
                     </Typography>
                     <Typography variant='body1'>
-                      Base price: {props.adDetails.basePrice.$numberDecimal}
+                      Base price: ₹{props.adDetails.basePrice.$numberDecimal}
                     </Typography>
                     <Divider variant='middle' sx={{ margin: '.5rem' }} />
 
@@ -242,7 +242,7 @@ const Ad = (props) => {
                       Time remaining: {getTimeRemaining()}
                     </Typography>
                     <Typography variant='body1'>
-                      Current price: ${props.adDetails.currentPrice.$numberDecimal}
+                      Current price: ₹{props.adDetails.currentPrice.$numberDecimal}
                     </Typography>
                     <Typography variant='body1'>
                       Current bidder: {props.highestBid && props.highestBid.user.username}
@@ -252,7 +252,7 @@ const Ad = (props) => {
                     {!ownerAd && (
                       <Box sx={bidContainer}>
                         <TextField
-                          label='$'
+                          label='₹'
                           id='bid-price'
                           size='small'
                           onChange={(e) => {

@@ -6,6 +6,8 @@ import openSocket from 'socket.io-client';
 import { Button, Box, ButtonGroup } from '@mui/material';
 // Styling
 import './css/board.css';
+import './css/card.css';
+
 import {
   adAreaStyle,
   boardCardStyle,
@@ -85,7 +87,9 @@ const Board = (props) => {
         {props.ads.slice(firstAdIndex, lastAdIndex).map((ad) => {
           return ad.auctionEnded ? null : (
             <div className='product__container' key={ad._id}>
+              <div className='card'>
               <Card ad={ad} key={ad._id} dashCard={false} cardStyle={boardCardStyle} />
+              </div>
             </div>
           );
         })}
