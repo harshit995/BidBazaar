@@ -24,6 +24,7 @@ import LoadingDisplay from './LoadingDisplay';
 // Actions
 import { getUserPurchasedAds } from '../actions/ad';
 import DashPurchasedList from './DashPurchasedList';
+import './css/dash.css';
 
 const Dashboard = (props) => {
   const navigate = useNavigate();
@@ -48,6 +49,7 @@ const Dashboard = (props) => {
   return props.loading ? (
     <Spinner />
   ) : (
+    <div className='body'>
     <Fragment>
       <Box sx={boxStyle}>
         <Paper sx={paperStyle}>
@@ -111,6 +113,7 @@ const Dashboard = (props) => {
         </Paper>
       </Box>
     </Fragment>
+    </div>
   );
 };
 
