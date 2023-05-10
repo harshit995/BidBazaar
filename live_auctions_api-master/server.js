@@ -6,6 +6,7 @@ const multer = require('multer');
 const socketio = require('./socket');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./documentation/swaggerSetup');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 const server = createServer(app);
@@ -15,6 +16,8 @@ const upload = multer({ dest: 'uploads/' });
 
 // Body parser
 app.use(express.json());
+app.use(express.static('public'));
+app.use(fileUpload());
 
 // CORS
 app.use((req, res, next) => {
