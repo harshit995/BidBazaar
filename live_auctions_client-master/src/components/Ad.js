@@ -208,10 +208,13 @@ const Ad = (props) => {
                 <Typography variant='h4'>{props.adDetails.productName}</Typography>
                 <Box sx={adArea}>
                   <Box sx={imageContainer}>
-                    {!props.imageLoading && (
+                    {props.imageLoading && (
                       <img
-                        src={props.adDetails.image ? props.adImage : imagePlaceholder}
+                        src={props.adDetails.image ? props.adDetails.image : imagePlaceholder}
+
                         alt={props.adDetails.productName}
+                        // alt={props.adDetails.productName}
+
                         style={imageStyle}
                       />
                     )}

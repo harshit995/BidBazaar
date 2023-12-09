@@ -19,7 +19,8 @@ exports.addAd = async (req, res, next) => {
   if (duration > 10800) duration = 3600;
   image = image === '' ? '' : `${image}`;
   const timer = duration;
-
+  console.log("hi")
+  console.log(image)
   try {
     let ad = new Ad({
       productName,
@@ -49,7 +50,7 @@ exports.addAd = async (req, res, next) => {
     res.status(200).json({ ad, room });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ errors: [{ msg: 'Server error' }] });
+    res.status(500).json({ errors: [{ msg: 'Server error....' }] });
   }
 };
 
@@ -78,7 +79,7 @@ exports.retrieveAds = async (req, res, next) => {
     res.status(200).json(adList);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ errors: [{ msg: 'Server error' }] });
+    res.status(500).json({ errors: [{ msg: 'Server error...' }] });
   }
 };
 
@@ -93,13 +94,17 @@ exports.findAd = async (req, res, next) => {
   }
 
   const adId = req.params.id; // id of type ObjectId (61a18153f926fdc2dd16d78b)
+  console.log("fetched successfully......")
+  console.log(adId)
+  console.log("here.....")
   try {
     const ad = await Ad.findById(adId).populate('owner', { password: 0 });
+    console.log(ad)
     if (!ad) return res.status(404).json({ errors: [{ msg: 'Ad not found' }] });
     res.status(200).json(ad);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ errors: [{ msg: 'Server error' }] });
+    res.status(500).json({ errors: [{ msg: 'Server error..' }] });
   }
 };
 
@@ -133,7 +138,7 @@ exports.updateAd = async (req, res, next) => {
     res.status(200).json(updatedAd);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ errors: [{ msg: 'Server error' }] });
+    res.status(500).json({ errors: [{ msg: 'Server error.' }] });
   }
 };
 
@@ -156,6 +161,6 @@ exports.deleteAd = async (req, res, next) => {
     res.status(200).json({ msg: 'Deleted' });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ errors: [{ msg: 'Server error' }] });
+    res.status(500).json({ errors: [{ msg: 'Server errors' }] });
   }
 };
